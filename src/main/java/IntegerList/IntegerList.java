@@ -44,22 +44,18 @@ public class CustomList<Type> implements Iterable<Type> {
             @Override
             public Type previous() {
 
-                return currentIndex > 0 ? array[currentIndex-1] ;
+                return currentIndex > 0 ? array[currentIndex--] : null;
             }
 
             @Override
             public int nextIndex() {
-                return 0;
+                return currentIndex < currentIndex-1 && array[currentIndex+1] != null ? currentIndex+1 : -1;
             }
 
             @Override
             public int previousIndex() {
-                return 0;
-            }
 
-            @Override
-            public void remove() {
-
+                return currentIndex > 0 ? currentIndex-1 : -1;
             }
 
             @Override
@@ -67,10 +63,20 @@ public class CustomList<Type> implements Iterable<Type> {
 
             }
 
+            /**
+            @Override
+            public void remove() {
+
+            }
+
+
             @Override
             public void add(Type t) {
 
             }
-        }
+            */
+        };
+
+        return listIterator;
     }
 }
