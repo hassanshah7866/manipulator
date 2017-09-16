@@ -1,10 +1,13 @@
+import CustomList.CustomList;
+
 public class Manipulator {
 
     public static void main (String[] args) {
 
-        IntegerList list = new IntegerList();
+
+        CustomList list = new CustomList();
         for (String s : args) {
-            list.add(Integer.getInteger(s);
+            list.add(Integer.getInteger(s));
         }
 
     }
