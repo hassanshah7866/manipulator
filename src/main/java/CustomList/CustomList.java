@@ -117,13 +117,37 @@ public class CustomList<Type> implements Iterable<Type> {
         }
     }
 
-    public void removeOddNumbers () {
+    public Type remove (int index) {
 
+        if (currentSize == 0) {
 
+            throw new RuntimeException("The list is empty");
+
+        } else if (index > currentSize - 1) {
+
+            throw new ArrayIndexOutOfBoundsException();
+
+        } else {
+
+            Type removedObject = array[index];
+            Type[] newArray = (Type[]) Arrays.stream(array)
+                    .filter(element -> !element.equals(array[index]))
+                    .toArray();
+
+            array = newArray;
+            currentSize--;
+            return removedObject;
+        }
+    }
+
+    public int size () {
+
+        return currentSize;
     }
 
     @Override
     public String toString() {
+
         return Arrays.toString(array);
     }
 
