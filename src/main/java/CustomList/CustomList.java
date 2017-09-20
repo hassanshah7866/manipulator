@@ -5,18 +5,22 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.stream.Stream;
 
+
 public class CustomList<Type> implements Iterable<Type> {
 
     private Type[] array;
     private int currentSize;
 
     public CustomList () {
+
         array = null;
+        currentSize = 0;
     }
 
     public CustomList (Type[] array) {
 
         this.array = array;
+        currentSize = array.length;
     }
 
     public Stream stream () {
@@ -145,10 +149,14 @@ public class CustomList<Type> implements Iterable<Type> {
         return currentSize;
     }
 
+    public boolean isEmpty () {
+
+        return currentSize == 0;
+    }
+
     @Override
     public String toString() {
 
         return Arrays.toString(array);
     }
-
 }
